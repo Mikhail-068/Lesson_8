@@ -25,46 +25,49 @@ def create_file(name, text):
         f.write(text)
 
 
+def show_plus(f):
+    def inner(*args, **kwargs):
+        my_directory = os.getcwd()
+        path = f'PATH:  {my_directory}'
+        print((len(path) + 1) * '-')
+        print(path)
+        print((len(path) + 1) * '-')
+        path = f'PATH:  {my_directory}'
+        result = f(*args, **kwargs)
+        print((len(path) + 1) * '-')
+        return result
+
+    return inner
+
+@show_plus
 def show_directory():
     my_directory = os.getcwd()
     path = f'PATH:  {my_directory}'
-    print((len(path) + 1) * '-')
-    print(path)
-    print((len(path) + 1) * '-')
     lst = os.listdir(my_directory)
     for i in lst:
         if os.path.isfile(os.path.join(my_directory, i)):
             print('[FILE]', i)
         else:
             print('[DIR] ', i)
-    print((len(path) + 1) * '-')
 
 
+@show_plus
 def show_directory_DIR():
     my_directory = os.getcwd()
-    path = f'Path:  {my_directory}'
-    print((len(path) + 1) * '-')
-    print(path)
-    print((len(path) + 1) * '-')
     lst = os.listdir(my_directory)
     for i in lst:
         if os.path.isdir(os.path.join(my_directory, i)):
             print('[DIR]', i)
 
-    print((len(path) + 1) * '-')
 
+@show_plus
 def show_directory_FILE():
     my_directory = os.getcwd()
-    path = f'Path:  {my_directory}'
-    print((len(path) + 1) * '-')
-    print(path)
-    print((len(path) + 1) * '-')
     lst = os.listdir(my_directory)
     for i in lst:
         if os.path.isfile(os.path.join(my_directory, i)):
             print('[FILE]', i)
 
-    print((len(path) + 1) * '-')
 
 def select():
     '''
