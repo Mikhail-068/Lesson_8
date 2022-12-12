@@ -1,6 +1,0 @@
-hello
-other
-go
-go
-hello
-other
