@@ -21,14 +21,27 @@ celebrities_error = {"Гайдна": 'тридцать первое марта 1
                      "Моцарта": 'двадцать седьмое января 1756 года',
                      "Баха": "тридцать первое марта 1685 года"}
 
+
+def show_vic(f):
+    def inner(*args, **kwargs):
+        print('-' * 99)
+        print('=' * 40, 'В И К Т О Р И Н А', '=' * 40, )
+        print('-' * 99)
+
+        result = f(*args, **kwargs)
+        return result
+
+    return inner
+
+@show_vic
 def vic():
 
     res = 'да'
     while res != 'нет':
         best_celeb = random.sample(people, 5)
-        print('-' * 99)
-        print('=' * 40, 'В И К Т О Р И Н А', '=' * 40, )
-        print('-' * 99)
+        # print('-' * 99)
+        # print('=' * 40, 'В И К Т О Р И Н А', '=' * 40, )
+        # print('-' * 99)
 
         list_errors = []
 
